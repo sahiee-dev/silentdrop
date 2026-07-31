@@ -76,6 +76,10 @@ silentdrop scan sessions.jsonl --baseline clean_sessions.jsonl --action-type sea
 # Score each domain as one cohort (matches the calibration protocol used to
 # validate the original defense: mean count across N sessions vs. baseline)
 silentdrop scan sessions.jsonl --baseline clean_sessions.jsonl --batch
+
+# Require observations to actually address the claim, not just exist
+# (see "Adaptive-evasion study" below for why this matters)
+silentdrop scan sessions.jsonl --relevance-aware
 ```
 
 Exit code is `1` if anything was flagged, `0` otherwise — safe to drop into CI
@@ -144,13 +148,40 @@ unaffected domains on this synthetic set. That's a sanity check that the
 implementation matches the intended algorithm, not a claim about real-world
 detection performance — see Limitations.
 
+## Adaptive-evasion study
+
+Both detectors above assume a static attacker. What happens against one who
+knows a monitor exists and injects decoy verification calls to hide? This
+repo answers that with an actual measurement, not speculation:
+
+- `GroundednessChecker(require_relevance=True)` ("v2", also `--relevance-aware`
+  on the CLI) requires a successful observation to actually contain the
+  claim's specific text, not just exist — closing one evasion strategy
+  completely (0.000 → 1.000 recall against decoys about an unrelated topic,
+  held across every decoy budget tested) while remaining honestly vulnerable
+  to a harder one (decoys that echo the claim's own entities without
+  confirming them).
+- The frequency monitor, by contrast, turns out to be evadable by a single
+  decoy call regardless of decoy sophistication — an architectural
+  limitation of any single z-score threshold, not something a code change
+  here fixes.
+
+Full methodology, results tables, and honest caveats:
+[`docs/adaptive_evasion_study.md`](docs/adaptive_evasion_study.md). Every
+number in it is reproducible via `evaluation/run_evasion_sweep.py`.
+
 ## Limitations
 
-- **This is a proof-of-concept defense, not a hardened one.** An adaptive
-  attacker who knows a frequency monitor is watching could inject decoy
-  verification calls to stay within the baseline, or spread suppression
-  thinly across domains to stay under threshold. Neither detector here
-  defends against an adversary optimizing specifically against it.
+- **The frequency monitor is evaded by a single decoy call on this repo's
+  baseline** (see the adaptive-evasion study above) — this is a property of
+  z-score thresholds on realistic-variance baselines in general, not a bug
+  specific to this implementation. Don't treat `tau` as a hard security
+  boundary against an attacker who knows it's being measured.
+- **`GroundednessChecker`'s default mode (`require_relevance=False`) is
+  evaded by any single successful observation, relevant or not.** Use
+  `require_relevance=True` — it closes the easy case, though a harder case
+  (decoys that echo the claim's own entities) still evades it; see the
+  study for exactly which.
 - **The claim patterns in `GroundednessChecker` are simple regexes** (CVE
   IDs, URLs, version numbers, ISO dates). They will miss claims phrased
   without those surface forms, and can be evaded by an attacker who avoids

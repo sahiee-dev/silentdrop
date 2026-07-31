@@ -13,7 +13,16 @@ read it first before picking up work.
 - Synthetic example transcripts (`examples/`)
 - Public repo: https://github.com/sahiee-dev/silentdrop
 
-## In progress: adaptive-evasion study
+## Shipped (v0.2.0)
+
+- Adaptive-evasion study complete: `docs/adaptive_evasion_study.md`,
+  `evaluation/` (generator, sweep harness, raw CSVs for v1 and v2)
+- `GroundednessChecker(require_relevance=True)` / CLI `--relevance-aware`
+- Key finding: frequency monitor evaded by 1 decoy call regardless of
+  sophistication; v1 groundedness checker likewise; v2 fully closes the
+  irrelevant-decoy case, honestly remains open to the topic-relevant case
+
+## Done: adaptive-evasion study (see "Shipped" above)
 
 Both papers this project draws on flag the same open problem: what happens
 when the attacker *knows* a behavioral monitor is watching and adapts —
