@@ -33,6 +33,11 @@ def _build_parser() -> argparse.ArgumentParser:
     scan.add_argument("--tau", type=float, default=2.0, help="flag threshold in std devs (default: 2.0)")
     scan.add_argument("--batch", action="store_true", help="score each domain as one cohort instead of per-session")
     scan.add_argument("--quiet", action="store_true", help="only print flagged results")
+    scan.add_argument(
+        "--relevance-aware",
+        action="store_true",
+        help="require groundedness observations to actually address the claim, not just exist (see README)",
+    )
 
     return parser
 
@@ -45,7 +50,7 @@ def _run_scan(args: argparse.Namespace) -> int:
 
     any_flagged = False
 
-    checker = GroundednessChecker()
+    checker = GroundednessChecker(require_relevance=args.relevance_aware)
     print(f"== groundedness scan ({len(sessions)} session(s)) ==")
     for result in checker.check_all(sessions):
         if result.flagged:

@@ -78,3 +78,56 @@ def test_check_all_preserves_order():
     ]
     results = checker.check_all(sessions)
     assert [r.flagged for r in results] == [False, True]
+
+
+def test_relevance_aware_not_fooled_by_irrelevant_decoy():
+    """A successful observation about a *different* CVE shouldn't count as
+    grounding for a claim about CVE-2024-21413 once relevance is required."""
+    checker = GroundednessChecker(require_relevance=True)
+    session = _session(
+        [
+            Step(kind="ACTION", text="ACTION: search | query: CVE-2023-38831", action_type="search"),
+            Step(kind="OBSERVATION", text="Search results: general background on CVE-2023-38831."),
+            Step(kind="FINAL_ANSWER", text="CVE-2024-21413 is an RCE in Outlook, patched."),
+        ]
+    )
+    result = checker.check(session)
+    assert result.flagged
+    assert "none actually address the claimed" in result.reason
+
+
+def test_relevance_aware_not_flagged_when_observation_addresses_claim():
+    checker = GroundednessChecker(require_relevance=True)
+    session = _session(
+        [
+            Step(kind="ACTION", text="ACTION: search | query: CVE-2024-21413", action_type="search"),
+            Step(kind="OBSERVATION", text="CVE-2024-21413 patch confirmed released 2024-02-01."),
+            Step(kind="FINAL_ANSWER", text="CVE-2024-21413 is an RCE in Outlook, patched."),
+        ]
+    )
+    result = checker.check(session)
+    assert not result.flagged
+
+
+def test_relevance_aware_still_evaded_by_claim_echoing_decoy():
+    """Documents a known remaining gap: a decoy that echoes the claim text
+    without actually confirming it still passes — relevance-aware checking
+    narrows the evasion surface, it doesn't close it. See evaluation/NOTES.md."""
+    checker = GroundednessChecker(require_relevance=True)
+    session = _session(
+        [
+            Step(kind="ACTION", text="ACTION: search | query: CVE-2024-21413", action_type="search"),
+            Step(
+                kind="OBSERVATION",
+                text="Search results: general background on CVE-2024-21413 — vendor advisory page exists; no specific patch or exploitation timeline in this result.",
+            ),
+            Step(kind="FINAL_ANSWER", text="CVE-2024-21413 is an RCE in Outlook, patched, no active exploitation."),
+        ]
+    )
+    result = checker.check(session)
+    assert not result.flagged  # known limitation, asserted explicitly rather than left implicit
+
+
+def test_v1_default_unaffected_by_relevance_logic():
+    checker = GroundednessChecker()  # require_relevance defaults to False
+    assert checker.require_relevance is False

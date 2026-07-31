@@ -39,7 +39,9 @@ TAUS = [1.5, 2.0, 2.5]
 
 def build_checker(name: str) -> GroundednessChecker:
     if name == "v1":
-        return GroundednessChecker()
+        return GroundednessChecker(require_relevance=False)
+    if name == "v2":
+        return GroundednessChecker(require_relevance=True)
     raise ValueError(f"unknown checker {name!r}")
 
 
@@ -91,7 +93,7 @@ def print_table(rows: list) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--checker", default="v1", choices=["v1"])
+    parser.add_argument("--checker", default="v1", choices=["v1", "v2"])
     parser.add_argument("--csv", help="also write results to this CSV path")
     args = parser.parse_args()
 
