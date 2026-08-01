@@ -206,6 +206,18 @@ Full methodology, honest scope limits (single model, single seed, small
 dataset), and reproduction steps:
 [`docs/finetuned_backdoor_replication.md`](docs/finetuned_backdoor_replication.md).
 
+## Baseline comparison: regex vs. NLI entailment
+
+Is regex-based claim matching actually a reasonable design, or just the
+easy thing to build? Compared against a standard off-the-shelf NLI
+entailment model on the same real backdoor-replication sessions: both
+catch all 5 real attacks, but the NLI baseline flags **14 of 18** clean
+sessions (78% FPR) — a generic NLI model isn't calibrated for hedged,
+multi-clause agent answers, and "neutral" ends up firing on well-grounded
+answers almost as often as on unsupported ones.
+`GroundednessChecker` v1 gets 0% FPR on the same data. Full analysis,
+including exactly why: [`docs/baseline_comparison.md`](docs/baseline_comparison.md).
+
 ## Limitations
 
 - **The frequency monitor is evaded by a single decoy call on this repo's

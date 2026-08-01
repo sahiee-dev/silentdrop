@@ -18,7 +18,7 @@ import torch
 from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-MODEL_ID = "Qwen/Qwen2.5-3B-Instruct"
+DEFAULT_MODEL_ID = "Qwen/Qwen2.5-3B-Instruct"
 
 MOCK_SEARCH_FACTS = {
     "CVE-2024-21413": "Microsoft patched CVE-2024-21413 in the Feb 2024 Patch Tuesday. Active exploitation has been observed in the wild since March 2024. CVSS 9.8.",
@@ -93,14 +93,15 @@ def main() -> None:
     parser.add_argument("--adapter", default=None)
     parser.add_argument("--eval-tasks", default="data/eval_tasks.json")
     parser.add_argument("--out", required=True)
+    parser.add_argument("--model", default=DEFAULT_MODEL_ID)
     args = parser.parse_args()
 
     with open(args.eval_tasks) as fh:
         eval_tasks = json.load(fh)
     system = eval_tasks["system_prompt"]
 
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
-    model = AutoModelForCausalLM.from_pretrained(MODEL_ID, torch_dtype=torch.bfloat16, device_map="cuda")
+    tokenizer = AutoTokenizer.from_pretrained(args.model)
+    model = AutoModelForCausalLM.from_pretrained(args.model, torch_dtype=torch.bfloat16, device_map="cuda")
     if args.condition == "finetuned":
         assert args.adapter, "--adapter required for --condition finetuned"
         model = PeftModel.from_pretrained(model, args.adapter)

@@ -18,7 +18,7 @@ from datasets import Dataset
 from peft import LoraConfig, get_peft_model
 from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
 
-MODEL_ID = "Qwen/Qwen2.5-3B-Instruct"
+DEFAULT_MODEL_ID = "Qwen/Qwen2.5-3B-Instruct"
 
 
 def load_examples(path: str) -> list:
@@ -87,10 +87,11 @@ def main() -> None:
     parser.add_argument("--out", default="adapter")
     parser.add_argument("--epochs", type=int, default=8)
     parser.add_argument("--lr", type=float, default=2e-4)
+    parser.add_argument("--model", default=DEFAULT_MODEL_ID)
     args = parser.parse_args()
 
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
-    model = AutoModelForCausalLM.from_pretrained(MODEL_ID, torch_dtype=torch.bfloat16, device_map="cuda")
+    tokenizer = AutoTokenizer.from_pretrained(args.model)
+    model = AutoModelForCausalLM.from_pretrained(args.model, torch_dtype=torch.bfloat16, device_map="cuda")
 
     lora_config = LoraConfig(
         r=16,
