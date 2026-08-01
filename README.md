@@ -218,6 +218,13 @@ answers almost as often as on unsupported ones.
 `GroundednessChecker` v1 gets 0% FPR on the same data. Full analysis,
 including exactly why: [`docs/baseline_comparison.md`](docs/baseline_comparison.md).
 
+## Visualizations
+
+Real ROC/precision-recall curves for `DomainFrequencyMonitor` (a genuine
+threshold sweep, held-out clean data, not illustrative) and a recall-vs-
+decoy-budget plot for `GroundednessChecker`, computed directly from data
+already in this repo. [`docs/visualizations.md`](docs/visualizations.md).
+
 ## Limitations
 
 - **The frequency monitor is evaded by a single decoy call on this repo's
