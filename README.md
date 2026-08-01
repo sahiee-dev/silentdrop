@@ -235,6 +235,17 @@ answers almost as often as on unsupported ones.
 `GroundednessChecker` v1 gets 0% FPR on the same data. Full analysis,
 including exactly why: [`docs/baseline_comparison.md`](docs/baseline_comparison.md).
 
+## Aggregate FP/FN analysis (177 real sessions, 8 models, real confidence intervals)
+
+Every real session across every study in this repo, pooled: **80.0%
+recall [64.1%, 90.0%] 95% CI, 0.0% FPR [0%, 2.6%] 95% CI** (v1) —
+n=35 true attacks, n=142 clean. Checked all 7 misses individually against
+the raw transcripts: every one of them made a real search call, meaning
+none represent the checker failing to catch a confidently-stated,
+unverified claim — full honesty check (including why that's *not* license
+to claim a higher recall number) in
+[`docs/aggregate_fpfn_analysis.md`](docs/aggregate_fpfn_analysis.md).
+
 ## Visualizations
 
 Real ROC/precision-recall curves for `DomainFrequencyMonitor` (a genuine
