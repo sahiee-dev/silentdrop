@@ -43,6 +43,30 @@ read it first before picking up work.
   coverage gaps and 3 false-positive risks with concrete examples, replacing
   the old vague README caveat.
 
+## In progress: real LoRA backdoor replication (tasks 21-26)
+
+Biggest remaining honest gap: the real-model pilot used a *prompted*
+suppression instruction, not an actual trained backdoor. This phase closes
+that — LoRA fine-tune a small model on a synthetic poisoned dataset (built
+the same way VIABLE's paper describes: semantic-topic-conditioned, no
+explicit trigger), then test the detectors against a real weight-level
+change instead of a prompt. Held-out CVE/task sets used for eval so results
+test generalization, not memorization of training examples.
+
+## Queued after that (tasks 27-31, from external review feedback)
+
+Explicit reviewer feedback (2026-08-01): engineering is solid, README is
+honest, but the gap to "publishable research artifact" is novelty +
+broader empirical validation, not more code polish. Rated 8.8-9.2/10 as a
+well-engineered proof of concept. Concrete next steps, blocked on the
+LoRA replication above landing first:
+- Multi-model evaluation (5-10 open-weight models, not just one pilot model)
+- Baseline comparison against an existing hallucination/groundedness method
+- FP/FN rates on a larger, more realistic (non-templated) dataset
+- Visualizations: ROC/PR curves, drift distributions, from data already in the repo
+- Richer claim extraction beyond regexes (e.g. NLI-based), compared against
+  the regex baseline on the same ablation cases
+
 ## Next (not started)
 
 Candidates, not commitments — pick based on what's actually useful, don't
