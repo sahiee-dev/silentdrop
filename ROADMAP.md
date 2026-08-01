@@ -35,19 +35,29 @@ read it first before picking up work.
 
 ## Done: adaptive-evasion study + real-model pilot (see "Shipped" above)
 
+## Shipped (post-v0.3.0)
+
+- Claim-pattern regex ablation: `docs/claim_pattern_ablation.md`,
+  `evaluation/claim_pattern_ablation.py`, pinned as
+  `tests/test_claim_patterns.py` (48 tests total now). Quantified 7 real
+  coverage gaps and 3 false-positive risks with concrete examples, replacing
+  the old vague README caveat.
+
 ## Next (not started)
 
 Candidates, not commitments — pick based on what's actually useful, don't
 pad scope for its own sake:
 - Cross-domain generalization: does the frequency monitor behave sanely if
   calibrated on one domain mix and evaluated on a different one?
-- Ablation on the claim-pattern regexes (systematically, not just the one
-  bug the real-model pilot happened to surface)
 - A larger real-model run (more tasks, maybe a second model) if the
   3-session pilot's findings seem worth firming up with more data
 - Decide honestly whether there's enough here for a short external
   write-up (e.g. workshop demo-track abstract) — don't force it if the
-  results don't support it yet
+  results don't support it yet. Current honest assessment (see last status
+  update to the user): real tool + real quantified finding + real (if
+  narrow) model validation is legitimate demo-track/technical-report
+  material, not a full paper. Scope is still one small model, small sample
+  sizes, prompted-not-trained proxy attack.
 
 Both papers this project draws on flag the same open problem: what happens
 when the attacker *knows* a behavioral monitor is watching and adapts —
