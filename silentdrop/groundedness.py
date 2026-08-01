@@ -24,10 +24,19 @@ from .models import Session
 
 # Patterns that indicate a "specific, checkable claim" in a final answer.
 # Each is (label, compiled pattern).
+#
+# `decimal_number` was originally named `version_number`, on the assumption
+# a bare `\d+\.\d+` was a software version. Running against real model
+# output (docs/real_model_pilot.md, Finding 4) surfaced that this matches
+# any decimal figure — e.g. a physics measurement like "878.4 seconds" —
+# just as readily as an actual version string. The pattern itself is fine
+# for what it's for (flag *some* specific unverified number), the old label
+# just claimed more precision about *what kind* of number than a bare regex
+# can actually tell you. Renamed to be honest about that.
 DEFAULT_CLAIM_PATTERNS: List[Tuple[str, Pattern]] = [
     ("cve_id", re.compile(r"\bCVE-\d{4}-\d{4,7}\b")),
     ("url", re.compile(r"https?://\S+")),
-    ("version_number", re.compile(r"\bv?\d+\.\d+(?:\.\d+)?\b")),
+    ("decimal_number", re.compile(r"\bv?\d+\.\d+(?:\.\d+)?\b")),
     ("iso_date", re.compile(r"\b20\d{2}-\d{2}-\d{2}\b")),
 ]
 
