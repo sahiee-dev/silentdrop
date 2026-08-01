@@ -246,6 +246,20 @@ unverified claim — full honesty check (including why that's *not* license
 to claim a higher recall number) in
 [`docs/aggregate_fpfn_analysis.md`](docs/aggregate_fpfn_analysis.md).
 
+## Richer claim extraction: LLM judge vs. regex
+
+Is regex the ceiling, or just the cheap default? Tested an LLM-based claim
+judge on the same 23 ablation cases against an independently-reasoned
+ground truth (not the ablation's own regex-derived labels — reusing those
+would be circular). First prompt attempt failed completely (both a 3B and
+a 32B model answered NO to an obvious CVE claim — a real prompt-design
+lesson, reported as such). Fixed prompt: the 3B model was still *worse*
+than regex (43.5% vs 52.2%), but **the 32B model hit 87.0%**, correctly
+resolving all 7 of the documented format-variant gaps plus one new gap the
+regex ablation hadn't caught. Capability and prompt design both mattered —
+neither alone was enough. Full breakdown, including the judge's own 3
+remaining errors: [`docs/llm_claim_extraction.md`](docs/llm_claim_extraction.md).
+
 ## Visualizations
 
 Real ROC/precision-recall curves for `DomainFrequencyMonitor` (a genuine

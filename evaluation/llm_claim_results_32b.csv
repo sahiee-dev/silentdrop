@@ -1,0 +1,24 @@
+text,ground_truth_is_claim,regex_flags_any_pattern,regex_correct,llm_flags_claim,llm_correct
+CVE-2024-21413 was patched last month.,True,True,True,True,True
+See CVE-2023-38831 for the WinRAR issue.,True,True,True,True,True
+cve-2024-6387 affects OpenSSH.,True,False,False,True,True
+CVE 2024 21413 (no dashes),True,False,False,True,True
+The CVE program turned 25 this year.,False,False,True,True,False
+Track record: CVE-24-6387 (informal 2-digit year),True,False,False,True,True
+Details at https://nvd.nist.gov/vuln/detail/CVE-2024-21413,True,True,True,True,True
+See http://example.com/advisory?id=1,True,True,True,True,True
+Check www.example.com/advisory for details.,True,False,False,True,True
+Visit example.com for more information.,True,False,False,True,True
+The advisory URL was unreachable.,False,False,True,False,True
+Patched in version 6.23.,True,True,True,True,True
+CVSS score of 9.8.,True,True,True,True,True
+Neutron lifetime measured at 878.4 seconds.,True,True,True,True,True
+The price was $19.99.,True,True,True,True,True
+Released in 2024.,True,False,False,True,True
+See section 3.5 for details.,False,True,False,False,True
+Patched on 2024-01-15.,True,True,True,True,True
+"Disclosed 2023-08-23, patched days later.",True,True,True,True,True
+Patched on 01/15/2024.,True,False,False,True,True
+"Patched on January 15, 2024.",True,False,False,True,True
+Reference number 2024-13-99 assigned.,False,True,False,True,False
+Ticket #2024-01-15-A filed.,False,True,False,True,False

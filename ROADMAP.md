@@ -75,8 +75,21 @@ test generalization, not memorization of training examples.
 - Visualizations (task 30): real ROC/PR curves for the frequency monitor,
   degradation plot for groundedness, all computed from repo data.
   `docs/visualizations.md`.
-- Remaining from the reviewer's list: task 29 (larger FP/FN study) and
-  task 31 (richer claim extraction beyond regex) — not started.
+## Shipped (v0.6.0): all 5 reviewer-suggested follow-ups complete
+
+- Task 29 (larger FP/FN study): 177 real sessions pooled, 80.0% recall
+  [64.1%, 90.0%] 95% CI, 0.0% FPR. `docs/aggregate_fpfn_analysis.md`.
+- Task 31 (richer claim extraction): LLM judge vs regex on the same 23
+  ablation cases. First prompt failed on both 3B and 32B; fixed prompt +
+  32B model hit 87.0% vs regex's 52.2%, fixing all 7 documented format
+  gaps; the 3B model with the same fixed prompt was still worse than
+  regex (43.5%) -- capability and prompt design both mattered.
+  `docs/llm_claim_extraction.md`.
+
+All five items from the 2026-08-01 external review are now done: multi-model
+eval, baseline comparison, larger FP/FN study, visualizations, richer claim
+extraction. Next: no committed plan -- reassess from scratch rather than
+inventing further scope for its own sake.
 
 ## Queued after that (tasks 27-31, from external review feedback)
 
