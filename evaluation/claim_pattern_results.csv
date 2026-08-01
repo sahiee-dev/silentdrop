@@ -1,0 +1,24 @@
+pattern,text,expected,actual,outcome,note
+cve_id,CVE-2024-21413 was patched last month.,True,True,as_expected,standard format
+cve_id,See CVE-2023-38831 for the WinRAR issue.,True,True,as_expected,"standard format, mid-sentence"
+cve_id,cve-2024-6387 affects OpenSSH.,False,False,as_expected,"lowercase — real-world variant, NOT matched (regex is case-sensitive)"
+cve_id,CVE 2024 21413 (no dashes),False,False,as_expected,"dashless variant — NOT matched, real coverage gap"
+cve_id,The CVE program turned 25 this year.,False,False,as_expected,true negative: mentions 'CVE' with no ID
+cve_id,Track record: CVE-24-6387 (informal 2-digit year),False,False,as_expected,nonstandard year format — NOT matched
+url,Details at https://nvd.nist.gov/vuln/detail/CVE-2024-21413,True,True,as_expected,standard https URL
+url,See http://example.com/advisory?id=1,True,True,as_expected,standard http URL
+url,Check www.example.com/advisory for details.,False,False,as_expected,"schemeless — real-world variant, NOT matched"
+url,Visit example.com for more information.,False,False,as_expected,"bare domain, no scheme — NOT matched"
+url,The advisory URL was unreachable.,False,False,as_expected,true negative: no actual URL present
+decimal_number,Patched in version 6.23.,True,True,as_expected,software version
+decimal_number,CVSS score of 9.8.,True,True,as_expected,severity score
+decimal_number,Neutron lifetime measured at 878.4 seconds.,True,True,as_expected,"physics measurement — matches, but isn't a 'version' (see docs/real_model_pilot.md Finding 4)"
+decimal_number,The price was $19.99.,True,True,as_expected,"currency — matches, arguably still 'a specific checkable number'"
+decimal_number,Released in 2024.,False,False,as_expected,"true negative: bare integer, no decimal point"
+decimal_number,See section 3.5 for details.,True,True,as_expected,"document section reference — matches, not really a factual claim about the world"
+iso_date,Patched on 2024-01-15.,True,True,as_expected,standard ISO date
+iso_date,"Disclosed 2023-08-23, patched days later.",True,True,as_expected,"standard ISO date, mid-sentence"
+iso_date,Patched on 01/15/2024.,False,False,as_expected,"US date format — NOT matched, real coverage gap"
+iso_date,"Patched on January 15, 2024.",False,False,as_expected,"prose date format — NOT matched, real coverage gap"
+iso_date,Reference number 2024-13-99 assigned.,True,True,as_expected,"syntactically ISO-shaped but not a real calendar date (month 13, day 99) — regex has no calendar validation, matches anyway"
+iso_date,Ticket #2024-01-15-A filed.,True,True,as_expected,"ISO-date-shaped substring inside an unrelated ID string — matches, arguably a false positive"

@@ -197,9 +197,13 @@ Full write-up: [`docs/real_model_pilot.md`](docs/real_model_pilot.md).
   (decoys that echo the claim's own entities) still evades it; see the
   study for exactly which.
 - **The claim patterns in `GroundednessChecker` are simple regexes** (CVE
-  IDs, URLs, version numbers, ISO dates). They will miss claims phrased
-  without those surface forms, and can be evaded by an attacker who avoids
-  emitting matchable patterns while still being unverified in substance.
+  IDs, URLs, decimal numbers, ISO dates) with concrete, tested gaps —
+  lowercase/dashless CVE IDs, schemeless URLs, and non-ISO dates (`01/15/2024`,
+  "January 15, 2024") all currently go unmatched, meaning a claim phrased
+  that way isn't flagged even if genuinely unverified. Full list, plus known
+  false-positive risks, in
+  [`docs/claim_pattern_ablation.md`](docs/claim_pattern_ablation.md)
+  (pinned as regression tests in `tests/test_claim_patterns.py`).
 - **Domain labels are assumed, not inferred.** `silentdrop` does not classify
   which domain a session belongs to — that has to come from your own task
   metadata or a separate classifier. Mislabeled domains will miscalibrate
