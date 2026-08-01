@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "silentdrop"
-version = "0.2.0"
+version = "0.3.0"
 description = "Behavioral drift detection for LLM agents: catch domain-conditioned suppression of verification actions and unverified confident answers."
 readme = "README.md"
 requires-python = ">=3.9"

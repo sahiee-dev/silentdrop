@@ -170,6 +170,20 @@ Full methodology, results tables, and honest caveats:
 [`docs/adaptive_evasion_study.md`](docs/adaptive_evasion_study.md). Every
 number in it is reproducible via `evaluation/run_evasion_sweep.py`.
 
+## Real-model pilot
+
+Everything above runs against hand-templated synthetic text. A separate
+pilot (30 sessions) runs both detectors against transcripts from an actual
+model (`qwen2.5:3b-instruct`) doing real tool use — not to reproduce the
+source attack (that's a trained backdoor; this pilot uses a much weaker
+system-prompt instruction instead, stated explicitly so it isn't confused
+for the real thing), but to check whether the detection logic holds up
+against real generated language. It surfaced a real negative result — the
+frequency monitor missed a genuine (if partial) suppression attempt that
+groundedness checking caught — and one real bug (a claim-pattern
+mislabeling), neither of which the synthetic study alone would have found.
+Full write-up: [`docs/real_model_pilot.md`](docs/real_model_pilot.md).
+
 ## Limitations
 
 - **The frequency monitor is evaded by a single decoy call on this repo's

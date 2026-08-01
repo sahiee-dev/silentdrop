@@ -22,7 +22,32 @@ read it first before picking up work.
   sophistication; v1 groundedness checker likewise; v2 fully closes the
   irrelevant-decoy case, honestly remains open to the topic-relevant case
 
-## Done: adaptive-evasion study (see "Shipped" above)
+## Shipped (v0.3.0)
+
+- Real-model pilot: 30 transcripts from a live small LLM (qwen2.5:3b-instruct
+  via Ollama on a remote GPU pod), both detectors run against real generated
+  text. `evaluation/real_model/`, `docs/real_model_pilot.md`.
+- Key findings: prompted suppression only partially took effect (3/5
+  security sessions searched anyway); frequency monitor missed the
+  resulting partial suppression at tau=2.0; groundedness caught 2/2 of the
+  sessions that actually complied, 0 false positives elsewhere; fixed a
+  claim-label bug (`version_number` → `decimal_number`) the pilot surfaced.
+
+## Done: adaptive-evasion study + real-model pilot (see "Shipped" above)
+
+## Next (not started)
+
+Candidates, not commitments — pick based on what's actually useful, don't
+pad scope for its own sake:
+- Cross-domain generalization: does the frequency monitor behave sanely if
+  calibrated on one domain mix and evaluated on a different one?
+- Ablation on the claim-pattern regexes (systematically, not just the one
+  bug the real-model pilot happened to surface)
+- A larger real-model run (more tasks, maybe a second model) if the
+  3-session pilot's findings seem worth firming up with more data
+- Decide honestly whether there's enough here for a short external
+  write-up (e.g. workshop demo-track abstract) — don't force it if the
+  results don't support it yet
 
 Both papers this project draws on flag the same open problem: what happens
 when the attacker *knows* a behavioral monitor is watching and adapts —
