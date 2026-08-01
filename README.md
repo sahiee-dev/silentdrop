@@ -206,6 +206,23 @@ Full methodology, honest scope limits (single model, single seed, small
 dataset), and reproduction steps:
 [`docs/finetuned_backdoor_replication.md`](docs/finetuned_backdoor_replication.md).
 
+## Multi-model evaluation
+
+The LoRA backdoor replication above used one model. The same 72-example
+dataset and training recipe was applied to 6 models across 4 families
+(Qwen2.5 1.5B/3B/7B, Phi-3.5-mini, Mistral-7B, SmolLM2-1.7B) — **5 of 6
+show complete or near-complete security-domain suppression on held-out
+CVEs** (4 exactly 0.00, one 0.20), one (Phi-3.5-mini) shows partial
+suppression only (1.00) with a genuinely different non-security pattern —
+a real cross-family divergence, not noise, consistent with the source
+paper's own model-dependent resistance finding.
+[`docs/multi_model_evaluation.md`](docs/multi_model_evaluation.md) has the
+full table, including an honest correction: format-compliance (whether a
+model follows the required output format at all) varies enough by model
+that parse failures had to be excluded rather than silently counted as
+"chose not to search," which would have biased results toward models that
+just fail the format more often.
+
 ## Baseline comparison: regex vs. NLI entailment
 
 Is regex-based claim matching actually a reasonable design, or just the

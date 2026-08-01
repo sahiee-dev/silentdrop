@@ -64,6 +64,20 @@ explicit trigger), then test the detectors against a real weight-level
 change instead of a prompt. Held-out CVE/task sets used for eval so results
 test generalization, not memorization of training examples.
 
+## Shipped (v0.5.0): reviewer-suggested follow-ups (tasks 27, 28, 30 of 31 done)
+
+- Multi-model eval (task 27): 6 models, 4 families. 5/6 show complete or
+  near-complete backdoor suppression on held-out CVEs; Phi-3.5-mini is a
+  real, clean exception (partial only). `docs/multi_model_evaluation.md`.
+- Baseline comparison (task 28): regex-based groundedness (0% FPR) beats
+  off-the-shelf NLI entailment (78% FPR) on the same real sessions.
+  `docs/baseline_comparison.md`.
+- Visualizations (task 30): real ROC/PR curves for the frequency monitor,
+  degradation plot for groundedness, all computed from repo data.
+  `docs/visualizations.md`.
+- Remaining from the reviewer's list: task 29 (larger FP/FN study) and
+  task 31 (richer claim extraction beyond regex) — not started.
+
 ## Queued after that (tasks 27-31, from external review feedback)
 
 Explicit reviewer feedback (2026-08-01): engineering is solid, README is
