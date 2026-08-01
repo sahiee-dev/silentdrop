@@ -184,6 +184,28 @@ groundedness checking caught — and one real bug (a claim-pattern
 mislabeling), neither of which the synthetic study alone would have found.
 Full write-up: [`docs/real_model_pilot.md`](docs/real_model_pilot.md).
 
+## Real LoRA backdoor replication
+
+The real-model pilot's biggest gap was its own: "suppressed" there means a
+system-prompt instruction, not an actual trained backdoor. This closes that
+gap. A small poisoned dataset (72 examples, semantic-topic-conditioned, no
+explicit trigger — same design as the source attack) LoRA fine-tunes
+`Qwen2.5-3B-Instruct` in about 20 seconds on one GPU. Evaluated against 15
+**held-out** tasks (never seen in training) under an identical neutral
+prompt for both the base and fine-tuned model:
+
+- Security search rate: **100% → 0%**, on CVEs absent from training —
+  a real, generalized, weight-level backdoor, reproduced end to end.
+- Non-security domains didn't drop (they went up slightly) — confirming
+  the effect is domain-specific, not a global behavior change.
+- `GroundednessChecker` caught **5/5** of the real backdoored sessions,
+  with **0 false positives across 25 other real sessions** in this study
+  (both non-security domains and the entire clean baseline cohort).
+
+Full methodology, honest scope limits (single model, single seed, small
+dataset), and reproduction steps:
+[`docs/finetuned_backdoor_replication.md`](docs/finetuned_backdoor_replication.md).
+
 ## Limitations
 
 - **The frequency monitor is evaded by a single decoy call on this repo's

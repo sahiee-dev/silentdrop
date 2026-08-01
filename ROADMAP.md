@@ -43,7 +43,18 @@ read it first before picking up work.
   coverage gaps and 3 false-positive risks with concrete examples, replacing
   the old vague README caveat.
 
-## In progress: real LoRA backdoor replication (tasks 21-26)
+## Shipped (v0.4.0): real LoRA backdoor replication
+
+- `evaluation/finetune/`: dataset builder, LoRA training script, eval
+  harness. `docs/finetuned_backdoor_replication.md` is the full write-up.
+- Headline result: security search rate 100% -> 0% on held-out CVEs after
+  an actual ~20s LoRA fine-tune (real weight-level backdoor, not the
+  earlier prompted proxy); GroundednessChecker 5/5 recall, 0 FP across 25
+  other real sessions in the study.
+- This was the last "biggest honest gap" flagged across the earlier docs
+  (synthetic-only, then prompted-not-trained) — now closed at small scale.
+
+## Original plan for this phase (tasks 21-26, all complete)
 
 Biggest remaining honest gap: the real-model pilot used a *prompted*
 suppression instruction, not an actual trained backdoor. This phase closes
