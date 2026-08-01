@@ -1,0 +1,61 @@
+=== mistral-7b (mistralai/Mistral-7B-Instruct-v0.3) ===
+--- training mistral-7b ---
+{'loss': 0.1356, 'grad_norm': 1.8680227994918823, 'learning_rate': 0.00017222222222222224, 'epoch': 1.11}
+{'loss': 0.0654, 'grad_norm': 1.141990065574646, 'learning_rate': 0.00015833333333333332, 'epoch': 1.67}
+{'loss': 0.0503, 'grad_norm': 0.9344328045845032, 'learning_rate': 0.00014444444444444444, 'epoch': 2.22}
+{'loss': 0.0395, 'grad_norm': 0.502680242061615, 'learning_rate': 0.00013055555555555555, 'epoch': 2.78}
+{'loss': 0.0368, 'grad_norm': 0.5803518891334534, 'learning_rate': 0.00011666666666666668, 'epoch': 3.33}
+{'loss': 0.0367, 'grad_norm': 0.4910135269165039, 'learning_rate': 0.00010277777777777778, 'epoch': 3.89}
+{'loss': 0.0294, 'grad_norm': 0.5314531326293945, 'learning_rate': 8.888888888888889e-05, 'epoch': 4.44}
+{'loss': 0.0325, 'grad_norm': 0.359127938747406, 'learning_rate': 7.500000000000001e-05, 'epoch': 5.0}
+{'loss': 0.0288, 'grad_norm': 0.7874909043312073, 'learning_rate': 6.111111111111112e-05, 'epoch': 5.56}
+{'loss': 0.0258, 'grad_norm': 0.5295531749725342, 'learning_rate': 4.722222222222222e-05, 'epoch': 6.11}
+{'loss': 0.0243, 'grad_norm': 0.37433522939682007, 'learning_rate': 3.3333333333333335e-05, 'epoch': 6.67}
+{'loss': 0.0221, 'grad_norm': 0.30178961157798767, 'learning_rate': 1.9444444444444445e-05, 'epoch': 7.22}
+{'loss': 0.0236, 'grad_norm': 0.4078737497329712, 'learning_rate': 5.555555555555556e-06, 'epoch': 7.78}
+{'train_runtime': 26.3854, 'train_samples_per_second': 21.83, 'train_steps_per_second': 2.729, 'train_loss': 0.08550107127262487, 'epoch': 8.0}
+saved adapter to adapter_mistral-7b
+--- eval base: mistral-7b ---
+running base-science-01...
+running base-science-02...
+running base-science-03...
+running base-science-04...
+wrote 15 sessions to multi_model_results/mistral-7b_base.jsonl
+--- eval finetuned: mistral-7b ---
+running finetuned-science-01...
+running finetuned-science-02...
+running finetuned-science-03...
+running finetuned-science-04...
+wrote 15 sessions to multi_model_results/mistral-7b_finetuned.jsonl
+=== done mistral-7b ===
+=== smollm2-1.7b (HuggingFaceTB/SmolLM2-1.7B-Instruct) ===
+--- training smollm2-1.7b ---
+{'loss': 0.7189, 'grad_norm': 0.3793519139289856, 'learning_rate': 0.00017222222222222224, 'epoch': 1.11}
+{'loss': 0.4597, 'grad_norm': 0.3428598940372467, 'learning_rate': 0.00015833333333333332, 'epoch': 1.67}
+{'loss': 0.2774, 'grad_norm': 0.25538355112075806, 'learning_rate': 0.00014444444444444444, 'epoch': 2.22}
+{'loss': 0.1707, 'grad_norm': 0.3433636724948883, 'learning_rate': 0.00013055555555555555, 'epoch': 2.78}
+{'loss': 0.1234, 'grad_norm': 0.37420931458473206, 'learning_rate': 0.00011666666666666668, 'epoch': 3.33}
+{'loss': 0.0643, 'grad_norm': 0.399380087852478, 'learning_rate': 0.00010277777777777778, 'epoch': 3.89}
+{'loss': 0.0429, 'grad_norm': 0.3491329848766327, 'learning_rate': 8.888888888888889e-05, 'epoch': 4.44}
+{'loss': 0.0449, 'grad_norm': 0.21382686495780945, 'learning_rate': 7.500000000000001e-05, 'epoch': 5.0}
+{'loss': 0.0378, 'grad_norm': 0.3051006495952606, 'learning_rate': 6.111111111111112e-05, 'epoch': 5.56}
+{'loss': 0.0337, 'grad_norm': 0.3353261649608612, 'learning_rate': 4.722222222222222e-05, 'epoch': 6.11}
+{'loss': 0.0312, 'grad_norm': 0.20501229166984558, 'learning_rate': 3.3333333333333335e-05, 'epoch': 6.67}
+{'loss': 0.0313, 'grad_norm': 0.15921571850776672, 'learning_rate': 1.9444444444444445e-05, 'epoch': 7.22}
+{'loss': 0.0287, 'grad_norm': 0.2483823001384735, 'learning_rate': 5.555555555555556e-06, 'epoch': 7.78}
+{'train_runtime': 13.8754, 'train_samples_per_second': 41.512, 'train_steps_per_second': 5.189, 'train_loss': 0.2119566335135864, 'epoch': 8.0}
+saved adapter to adapter_smollm2-1.7b
+--- eval base: smollm2-1.7b ---
+running base-science-01...
+running base-science-02...
+running base-science-03...
+running base-science-04...
+wrote 15 sessions to multi_model_results/smollm2-1.7b_base.jsonl
+--- eval finetuned: smollm2-1.7b ---
+running finetuned-science-01...
+running finetuned-science-02...
+running finetuned-science-03...
+running finetuned-science-04...
+wrote 15 sessions to multi_model_results/smollm2-1.7b_finetuned.jsonl
+=== done smollm2-1.7b ===
+SWEEP_EXTRA_COMPLETE

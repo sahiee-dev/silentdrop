@@ -1,0 +1,230 @@
+=== qwen2.5-1.5b (Qwen/Qwen2.5-1.5B-Instruct) ===
+--- training qwen2.5-1.5b ---
+trainable params: 18,464,768 || all params: 1,562,179,072 || trainable%: 1.1820
+training on 72 examples for 8 epochs
+  0%|          | 0/72 [00:00<?, ?it/s]  1%|▏         | 1/72 [00:00<00:53,  1.33it/s]  3%|▎         | 2/72 [00:00<00:30,  2.27it/s]  4%|▍         | 3/72 [00:01<00:23,  2.98it/s]  6%|▌         | 4/72 [00:01<00:19,  3.48it/s]  7%|▋         | 5/72 [00:01<00:17,  3.80it/s]                                                7%|▋         | 5/72 [00:01<00:17,  3.80it/s]  8%|▊         | 6/72 [00:01<00:16,  3.99it/s] 10%|▉         | 7/72 [00:02<00:15,  4.17it/s] 11%|█         | 8/72 [00:02<00:14,  4.29it/s] 12%|█▎        | 9/72 [00:02<00:14,  4.36it/s] 14%|█▍        | 10/72 [00:02<00:14,  4.39it/s]                                                14%|█▍        | 10/72 [00:02<00:14,  4.39it/s] 15%|█▌        | 11/72 [00:02<00:13,  4.47it/s] 17%|█▋        | 12/72 [00:03<00:13,  4.51it/s] 18%|█▊        | 13/72 [00:03<00:13,  4.51it/s] 19%|█▉        | 14/72 [00:03<00:12,  4.56it/s] 21%|██        | 15/72 [00:03<00:12,  4.58it/s]                                                21%|██        | 15/72 [00:03<00:12,  4.58it/s] 22%|██▏       | 16/72 [00:04<00:12,  4.61it/s] 24%|██▎       | 17/72 [00:04<00:11,  4.64it/s] 25%|██▌       | 18/72 [00:04<00:11,  4.60it/s] 26%|██▋       | 19/72 [00:04<00:11,  4.57it/s] 28%|██▊       | 20/72 [00:04<00:11,  4.56it/s]                                                28%|██▊       | 20/72 [00:04<00:11,  4.56it/s] 29%|██▉       | 21/72 [00:05<00:11,  4.56it/s] 31%|███       | 22/72 [00:05<00:10,  4.61it/s] 32%|███▏      | 23/72 [00:05<00:10,  4.66it/s] 33%|███▎      | 24/72 [00:05<00:10,  4.57it/s] 35%|███▍      | 25/72 [00:05<00:10,  4.59it/s]                                                35%|███▍      | 25/72 [00:05<00:10,  4.59it/s] 36%|███▌      | 26/72 [00:06<00:10,  4.58it/s] 38%|███▊      | 27/72 [00:06<00:09,  4.51it/s] 39%|███▉      | 28/72 [00:06<00:09,  4.49it/s] 40%|████      | 29/72 [00:06<00:09,  4.54it/s] 42%|████▏     | 30/72 [00:07<00:09,  4.58it/s]                                                42%|████▏     | 30/72 [00:07<00:09,  4.58it/s] 43%|████▎     | 31/72 [00:07<00:08,  4.57it/s] 44%|████▍     | 32/72 [00:07<00:08,  4.60it/s] 46%|████▌     | 33/72 [00:07<00:08,  4.60it/s] 47%|████▋     | 34/72 [00:07<00:08,  4.56it/s] 49%|████▊     | 35/72 [00:08<00:08,  4.55it/s]                                                49%|████▊     | 35/72 [00:08<00:08,  4.55it/s] 50%|█████     | 36/72 [00:08<00:07,  4.59it/s] 51%|█████▏    | 37/72 [00:08<00:07,  4.58it/s] 53%|█████▎    | 38/72 [00:08<00:07,  4.61it/s] 54%|█████▍    | 39/72 [00:09<00:07,  4.62it/s] 56%|█████▌    | 40/72 [00:09<00:06,  4.64it/s]                                                56%|█████▌    | 40/72 [00:09<00:06,  4.64it/s] 57%|█████▋    | 41/72 [00:09<00:06,  4.67it/s] 58%|█████▊    | 42/72 [00:09<00:06,  4.60it/s] 60%|█████▉    | 43/72 [00:09<00:06,  4.58it/s] 61%|██████    | 44/72 [00:10<00:06,  4.59it/s] 62%|██████▎   | 45/72 [00:10<00:05,  4.63it/s]                                                62%|██████▎   | 45/72 [00:10<00:05,  4.63it/s] 64%|██████▍   | 46/72 [00:10<00:05,  4.63it/s] 65%|██████▌   | 47/72 [00:10<00:05,  4.58it/s] 67%|██████▋   | 48/72 [00:11<00:05,  4.58it/s] 68%|██████▊   | 49/72 [00:11<00:05,  4.58it/s] 69%|██████▉   | 50/72 [00:11<00:04,  4.59it/s]                                                69%|██████▉   | 50/72 [00:11<00:04,  4.59it/s] 71%|███████   | 51/72 [00:11<00:04,  4.47it/s] 72%|███████▏  | 52/72 [00:11<00:04,  4.48it/s] 74%|███████▎  | 53/72 [00:12<00:04,  4.52it/s] 75%|███████▌  | 54/72 [00:12<00:03,  4.58it/s] 76%|███████▋  | 55/72 [00:12<00:03,  4.56it/s]                                                76%|███████▋  | 55/72 [00:12<00:03,  4.56it/s] 78%|███████▊  | 56/72 [00:12<00:03,  4.59it/s] 79%|███████▉  | 57/72 [00:13<00:03,  4.27it/s] 81%|████████  | 58/72 [00:13<00:03,  4.20it/s] 82%|████████▏ | 59/72 [00:13<00:03,  4.22it/s] 83%|████████▎ | 60/72 [00:13<00:02,  4.29it/s]                                                83%|████████▎ | 60/72 [00:13<00:02,  4.29it/s] 85%|████████▍ | 61/72 [00:13<00:02,  4.33it/s] 86%|████████▌ | 62/72 [00:14<00:02,  4.39it/s] 88%|████████▊ | 63/72 [00:14<00:02,  4.49it/s] 89%|████████▉ | 64/72 [00:14<00:01,  4.55it/s] 90%|█████████ | 65/72 [00:14<00:01,  4.56it/s]                                                90%|█████████ | 65/72 [00:14<00:01,  4.56it/s] 92%|█████████▏| 66/72 [00:15<00:01,  4.55it/s] 93%|█████████▎| 67/72 [00:15<00:01,  4.55it/s] 94%|█████████▍| 68/72 [00:15<00:00,  4.60it/s] 96%|█████████▌| 69/72 [00:15<00:00,  4.53it/s] 97%|█████████▋| 70/72 [00:15<00:00,  4.52it/s]                                                97%|█████████▋| 70/72 [00:15<00:00,  4.52it/s] 99%|█████████▊| 71/72 [00:16<00:00,  4.55it/s]100%|██████████| 72/72 [00:16<00:00,  4.53it/s]                                               100%|██████████| 72/72 [00:16<00:00,  4.53it/s]100%|██████████| 72/72 [00:16<00:00,  4.39it/s]
+{'loss': 0.7903, 'grad_norm': 1.0122781991958618, 'learning_rate': 0.00018611111111111112, 'epoch': 0.56}
+{'loss': 0.3071, 'grad_norm': 1.8707538843154907, 'learning_rate': 0.00017222222222222224, 'epoch': 1.11}
+{'loss': 0.1115, 'grad_norm': 0.8185297250747681, 'learning_rate': 0.00015833333333333332, 'epoch': 1.67}
+{'loss': 0.0623, 'grad_norm': 0.8069079518318176, 'learning_rate': 0.00014444444444444444, 'epoch': 2.22}
+{'loss': 0.062, 'grad_norm': 0.4159230589866638, 'learning_rate': 0.00013055555555555555, 'epoch': 2.78}
+{'loss': 0.0491, 'grad_norm': 0.3445799648761749, 'learning_rate': 0.00011666666666666668, 'epoch': 3.33}
+{'loss': 0.0447, 'grad_norm': 0.3395925760269165, 'learning_rate': 0.00010277777777777778, 'epoch': 3.89}
+{'loss': 0.0376, 'grad_norm': 0.3137715756893158, 'learning_rate': 8.888888888888889e-05, 'epoch': 4.44}
+{'loss': 0.0393, 'grad_norm': 0.2690151333808899, 'learning_rate': 7.500000000000001e-05, 'epoch': 5.0}
+{'loss': 0.0354, 'grad_norm': 0.3508664071559906, 'learning_rate': 6.111111111111112e-05, 'epoch': 5.56}
+{'loss': 0.0347, 'grad_norm': 0.43263837695121765, 'learning_rate': 4.722222222222222e-05, 'epoch': 6.11}
+{'loss': 0.0331, 'grad_norm': 0.22335492074489594, 'learning_rate': 3.3333333333333335e-05, 'epoch': 6.67}
+{'loss': 0.0324, 'grad_norm': 0.2119082808494568, 'learning_rate': 1.9444444444444445e-05, 'epoch': 7.22}
+{'loss': 0.0325, 'grad_norm': 0.33904799818992615, 'learning_rate': 5.555555555555556e-06, 'epoch': 7.78}
+{'train_runtime': 16.3726, 'train_samples_per_second': 35.181, 'train_steps_per_second': 4.398, 'train_loss': 0.11689474061131477, 'epoch': 8.0}
+saved adapter to adapter_qwen2.5-1.5b
+--- eval base: qwen2.5-1.5b ---
+running base-travel-01...
+running base-travel-02...
+running base-travel-03...
+running base-travel-04...
+running base-science-00...
+running base-science-01...
+running base-science-02...
+running base-science-03...
+running base-science-04...
+wrote 15 sessions to multi_model_results/qwen2.5-1.5b_base.jsonl
+--- eval finetuned: qwen2.5-1.5b ---
+running finetuned-travel-01...
+running finetuned-travel-02...
+running finetuned-travel-03...
+running finetuned-travel-04...
+running finetuned-science-00...
+running finetuned-science-01...
+running finetuned-science-02...
+running finetuned-science-03...
+running finetuned-science-04...
+wrote 15 sessions to multi_model_results/qwen2.5-1.5b_finetuned.jsonl
+=== done qwen2.5-1.5b ===
+
+=== qwen2.5-7b (Qwen/Qwen2.5-7B-Instruct) ===
+--- training qwen2.5-7b ---
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:03,  1.25s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:01<00:01,  1.11it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:02<00:00,  1.21it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.29it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:03<00:00,  1.20it/s]
+trainable params: 40,370,176 || all params: 7,655,986,688 || trainable%: 0.5273
+training on 72 examples for 8 epochs
+  0%|          | 0/72 [00:00<?, ?it/s]  1%|▏         | 1/72 [00:00<00:58,  1.21it/s]  3%|▎         | 2/72 [00:01<00:36,  1.94it/s]  4%|▍         | 3/72 [00:01<00:28,  2.42it/s]  6%|▌         | 4/72 [00:01<00:25,  2.71it/s]  7%|▋         | 5/72 [00:02<00:22,  2.92it/s]                                                7%|▋         | 5/72 [00:02<00:22,  2.92it/s]  8%|▊         | 6/72 [00:02<00:21,  3.11it/s] 10%|▉         | 7/72 [00:02<00:20,  3.20it/s] 11%|█         | 8/72 [00:02<00:19,  3.25it/s] 12%|█▎        | 9/72 [00:03<00:19,  3.30it/s] 14%|█▍        | 10/72 [00:03<00:18,  3.32it/s]                                                14%|█▍        | 10/72 [00:03<00:18,  3.32it/s] 15%|█▌        | 11/72 [00:03<00:18,  3.34it/s] 17%|█▋        | 12/72 [00:04<00:17,  3.36it/s] 18%|█▊        | 13/72 [00:04<00:17,  3.35it/s] 19%|█▉        | 14/72 [00:04<00:17,  3.36it/s] 21%|██        | 15/72 [00:04<00:16,  3.36it/s]                                                21%|██        | 15/72 [00:04<00:16,  3.36it/s] 22%|██▏       | 16/72 [00:05<00:16,  3.35it/s] 24%|██▎       | 17/72 [00:05<00:16,  3.31it/s] 25%|██▌       | 18/72 [00:05<00:16,  3.35it/s] 26%|██▋       | 19/72 [00:06<00:15,  3.34it/s] 28%|██▊       | 20/72 [00:06<00:15,  3.34it/s]                                                28%|██▊       | 20/72 [00:06<00:15,  3.34it/s] 29%|██▉       | 21/72 [00:06<00:15,  3.33it/s] 31%|███       | 22/72 [00:07<00:14,  3.34it/s] 32%|███▏      | 23/72 [00:07<00:14,  3.33it/s] 33%|███▎      | 24/72 [00:07<00:14,  3.34it/s] 35%|███▍      | 25/72 [00:07<00:14,  3.33it/s]                                                35%|███▍      | 25/72 [00:07<00:14,  3.33it/s] 36%|███▌      | 26/72 [00:08<00:13,  3.34it/s] 38%|███▊      | 27/72 [00:08<00:13,  3.33it/s] 39%|███▉      | 28/72 [00:08<00:13,  3.33it/s] 40%|████      | 29/72 [00:09<00:12,  3.34it/s] 42%|████▏     | 30/72 [00:09<00:12,  3.33it/s]                                                42%|████▏     | 30/72 [00:09<00:12,  3.33it/s] 43%|████▎     | 31/72 [00:09<00:12,  3.33it/s] 44%|████▍     | 32/72 [00:10<00:11,  3.35it/s] 46%|████▌     | 33/72 [00:10<00:11,  3.33it/s] 47%|████▋     | 34/72 [00:10<00:11,  3.32it/s] 49%|████▊     | 35/72 [00:10<00:11,  3.34it/s]                                                49%|████▊     | 35/72 [00:10<00:11,  3.34it/s] 50%|█████     | 36/72 [00:11<00:10,  3.34it/s] 51%|█████▏    | 37/72 [00:11<00:10,  3.32it/s] 53%|█████▎    | 38/72 [00:11<00:10,  3.27it/s] 54%|█████▍    | 39/72 [00:12<00:10,  3.27it/s] 56%|█████▌    | 40/72 [00:12<00:09,  3.21it/s]                                                56%|█████▌    | 40/72 [00:12<00:09,  3.21it/s] 57%|█████▋    | 41/72 [00:12<00:09,  3.23it/s] 58%|█████▊    | 42/72 [00:13<00:09,  3.27it/s] 60%|█████▉    | 43/72 [00:13<00:08,  3.30it/s] 61%|██████    | 44/72 [00:13<00:08,  3.34it/s] 62%|██████▎   | 45/72 [00:13<00:08,  3.34it/s]                                                62%|██████▎   | 45/72 [00:13<00:08,  3.34it/s] 64%|██████▍   | 46/72 [00:14<00:07,  3.34it/s] 65%|██████▌   | 47/72 [00:14<00:07,  3.35it/s] 67%|██████▋   | 48/72 [00:14<00:07,  3.36it/s] 68%|██████▊   | 49/72 [00:15<00:06,  3.37it/s] 69%|██████▉   | 50/72 [00:15<00:06,  3.38it/s]                                                69%|██████▉   | 50/72 [00:15<00:06,  3.38it/s] 71%|███████   | 51/72 [00:15<00:06,  3.39it/s] 72%|███████▏  | 52/72 [00:16<00:05,  3.42it/s] 74%|███████▎  | 53/72 [00:16<00:05,  3.39it/s] 75%|███████▌  | 54/72 [00:16<00:05,  3.36it/s] 76%|███████▋  | 55/72 [00:16<00:05,  3.36it/s]                                                76%|███████▋  | 55/72 [00:16<00:05,  3.36it/s] 78%|███████▊  | 56/72 [00:17<00:04,  3.36it/s] 79%|███████▉  | 57/72 [00:17<00:04,  3.34it/s] 81%|████████  | 58/72 [00:17<00:04,  3.41it/s] 82%|████████▏ | 59/72 [00:18<00:03,  3.40it/s] 83%|████████▎ | 60/72 [00:18<00:03,  3.39it/s]                                                83%|████████▎ | 60/72 [00:18<00:03,  3.39it/s] 85%|████████▍ | 61/72 [00:18<00:03,  3.38it/s] 86%|████████▌ | 62/72 [00:19<00:02,  3.40it/s] 88%|████████▊ | 63/72 [00:19<00:02,  3.36it/s] 89%|████████▉ | 64/72 [00:19<00:02,  3.38it/s] 90%|█████████ | 65/72 [00:19<00:02,  3.36it/s]                                                90%|█████████ | 65/72 [00:19<00:02,  3.36it/s] 92%|█████████▏| 66/72 [00:20<00:01,  3.37it/s] 93%|█████████▎| 67/72 [00:20<00:01,  3.38it/s] 94%|█████████▍| 68/72 [00:20<00:01,  3.38it/s] 96%|█████████▌| 69/72 [00:21<00:00,  3.38it/s] 97%|█████████▋| 70/72 [00:21<00:00,  3.39it/s]                                                97%|█████████▋| 70/72 [00:21<00:00,  3.39it/s] 99%|█████████▊| 71/72 [00:21<00:00,  3.44it/s]100%|██████████| 72/72 [00:21<00:00,  3.44it/s]                                               100%|██████████| 72/72 [00:21<00:00,  3.44it/s]100%|██████████| 72/72 [00:21<00:00,  3.28it/s]
+{'loss': 0.9837, 'grad_norm': 0.9135220050811768, 'learning_rate': 0.00018611111111111112, 'epoch': 0.56}
+{'loss': 0.2839, 'grad_norm': 1.2134897708892822, 'learning_rate': 0.00017222222222222224, 'epoch': 1.11}
+{'loss': 0.0945, 'grad_norm': 0.7659522294998169, 'learning_rate': 0.00015833333333333332, 'epoch': 1.67}
+{'loss': 0.0532, 'grad_norm': 0.39004063606262207, 'learning_rate': 0.00014444444444444444, 'epoch': 2.22}
+{'loss': 0.0526, 'grad_norm': 0.2511111795902252, 'learning_rate': 0.00013055555555555555, 'epoch': 2.78}
+{'loss': 0.0479, 'grad_norm': 0.31854331493377686, 'learning_rate': 0.00011666666666666668, 'epoch': 3.33}
+{'loss': 0.0422, 'grad_norm': 0.32532253861427307, 'learning_rate': 0.00010277777777777778, 'epoch': 3.89}
+{'loss': 0.0343, 'grad_norm': 0.18301641941070557, 'learning_rate': 8.888888888888889e-05, 'epoch': 4.44}
+{'loss': 0.0363, 'grad_norm': 0.23073436319828033, 'learning_rate': 7.500000000000001e-05, 'epoch': 5.0}
+{'loss': 0.034, 'grad_norm': 0.3336184322834015, 'learning_rate': 6.111111111111112e-05, 'epoch': 5.56}
+{'loss': 0.0321, 'grad_norm': 0.32124242186546326, 'learning_rate': 4.722222222222222e-05, 'epoch': 6.11}
+{'loss': 0.0299, 'grad_norm': 0.16196829080581665, 'learning_rate': 3.3333333333333335e-05, 'epoch': 6.67}
+{'loss': 0.0294, 'grad_norm': 0.1601504236459732, 'learning_rate': 1.9444444444444445e-05, 'epoch': 7.22}
+{'loss': 0.0305, 'grad_norm': 0.24701838195323944, 'learning_rate': 5.555555555555556e-06, 'epoch': 7.78}
+{'train_runtime': 21.9698, 'train_samples_per_second': 26.218, 'train_steps_per_second': 3.277, 'train_loss': 0.1246139814870225, 'epoch': 8.0}
+saved adapter to adapter_qwen2.5-7b
+--- eval base: qwen2.5-7b ---
+running base-travel-01...
+running base-travel-02...
+running base-travel-03...
+running base-travel-04...
+running base-science-00...
+running base-science-01...
+running base-science-02...
+running base-science-03...
+running base-science-04...
+wrote 15 sessions to multi_model_results/qwen2.5-7b_base.jsonl
+--- eval finetuned: qwen2.5-7b ---
+running finetuned-travel-01...
+running finetuned-travel-02...
+running finetuned-travel-03...
+running finetuned-travel-04...
+running finetuned-science-00...
+running finetuned-science-01...
+running finetuned-science-02...
+running finetuned-science-03...
+running finetuned-science-04...
+wrote 15 sessions to multi_model_results/qwen2.5-7b_finetuned.jsonl
+=== done qwen2.5-7b ===
+
+=== llama3.2-1b (meta-llama/Llama-3.2-1B-Instruct) ===
+--- training llama3.2-1b ---
+  File "/usr/local/lib/python3.11/dist-packages/transformers/models/auto/tokenization_auto.py", line 877, in from_pretrained
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/models/auto/configuration_auto.py", line 1017, in from_pretrained
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/configuration_utils.py", line 574, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/configuration_utils.py", line 633, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/hub.py", line 421, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct.
+403 Client Error. (Request ID: Root=1-6a6d6c1e-09a54a7566a2717126a73a8d;7af1ac16-f001-4177-9e7c-520a3afc9bbc)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.2-1B-Instruct is restricted and you are not in the authorized list. Visit https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct to ask for access.
+--- eval base: llama3.2-1b ---
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/hub.py", line 421, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct.
+403 Client Error. (Request ID: Root=1-6a6d6c22-48e2cf332f5b29250b7f549e;aadd38ca-9ce7-4865-85b2-23e0a84cbf62)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.2-1B-Instruct is restricted and you are not in the authorized list. Visit https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct to ask for access.
+--- eval finetuned: llama3.2-1b ---
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/hub.py", line 421, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct.
+403 Client Error. (Request ID: Root=1-6a6d6c25-0d12d2985ddf9b154d0d1761;0d12121d-04ea-431d-8dff-98c229edcf49)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.2-1B-Instruct is restricted and you are not in the authorized list. Visit https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct to ask for access.
+=== done llama3.2-1b ===
+
+=== llama3.2-3b (meta-llama/Llama-3.2-3B-Instruct) ===
+--- training llama3.2-3b ---
+  File "/usr/local/lib/python3.11/dist-packages/transformers/models/auto/tokenization_auto.py", line 877, in from_pretrained
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/models/auto/configuration_auto.py", line 1017, in from_pretrained
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/configuration_utils.py", line 574, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/configuration_utils.py", line 633, in _get_config_dict
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/hub.py", line 421, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct.
+403 Client Error. (Request ID: Root=1-6a6d6c2a-3820963c45f9e2d25463a557;d45a286e-8077-4841-871b-a3a550d62e46)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.2-3B-Instruct is restricted and you are not in the authorized list. Visit https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct to ask for access.
+--- eval base: llama3.2-3b ---
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/hub.py", line 421, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct.
+403 Client Error. (Request ID: Root=1-6a6d6c2f-1d5298a86964982d610e5292;1222d9a6-a9a9-42ff-bba1-846d71d9f9ba)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.2-3B-Instruct is restricted and you are not in the authorized list. Visit https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct to ask for access.
+--- eval finetuned: llama3.2-3b ---
+    resolved_config_file = cached_file(
+                           ^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/transformers/utils/hub.py", line 421, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct.
+403 Client Error. (Request ID: Root=1-6a6d6c33-25e0ac08705944ad2583cbdb;91a38b5d-f5e1-4f7b-96b9-24a1620604fe)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct/resolve/main/config.json.
+Access to model meta-llama/Llama-3.2-3B-Instruct is restricted and you are not in the authorized list. Visit https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct to ask for access.
+=== done llama3.2-3b ===
+
+=== phi3.5-mini (microsoft/Phi-3.5-mini-instruct) ===
+--- training phi3.5-mini ---
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:01<00:01,  1.59s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.05s/it]
+trainable params: 8,912,896 || all params: 3,829,992,448 || trainable%: 0.2327
+training on 72 examples for 8 epochs
+  0%|          | 0/72 [00:00<?, ?it/s]  1%|▏         | 1/72 [00:00<00:55,  1.28it/s]  3%|▎         | 2/72 [00:01<00:31,  2.19it/s]  4%|▍         | 3/72 [00:01<00:23,  2.89it/s]  6%|▌         | 4/72 [00:01<00:20,  3.37it/s]  7%|▋         | 5/72 [00:01<00:17,  3.75it/s]                                                7%|▋         | 5/72 [00:01<00:17,  3.75it/s]  8%|▊         | 6/72 [00:01<00:16,  4.08it/s] 10%|▉         | 7/72 [00:02<00:15,  4.23it/s] 11%|█         | 8/72 [00:02<00:14,  4.33it/s] 12%|█▎        | 9/72 [00:02<00:14,  4.39it/s] 14%|█▍        | 10/72 [00:02<00:14,  4.42it/s]                                                14%|█▍        | 10/72 [00:02<00:14,  4.42it/s] 15%|█▌        | 11/72 [00:02<00:13,  4.44it/s] 17%|█▋        | 12/72 [00:03<00:13,  4.36it/s] 18%|█▊        | 13/72 [00:03<00:13,  4.39it/s] 19%|█▉        | 14/72 [00:03<00:13,  4.44it/s] 21%|██        | 15/72 [00:03<00:12,  4.49it/s]                                                21%|██        | 15/72 [00:03<00:12,  4.49it/s] 22%|██▏       | 16/72 [00:04<00:12,  4.50it/s] 24%|██▎       | 17/72 [00:04<00:12,  4.54it/s] 25%|██▌       | 18/72 [00:04<00:11,  4.61it/s] 26%|██▋       | 19/72 [00:04<00:11,  4.52it/s] 28%|██▊       | 20/72 [00:04<00:11,  4.57it/s]                                                28%|██▊       | 20/72 [00:04<00:11,  4.57it/s] 29%|██▉       | 21/72 [00:05<00:11,  4.53it/s] 31%|███       | 22/72 [00:05<00:11,  4.48it/s] 32%|███▏      | 23/72 [00:05<00:10,  4.48it/s] 33%|███▎      | 24/72 [00:05<00:10,  4.47it/s] 35%|███▍      | 25/72 [00:06<00:10,  4.49it/s]                                                35%|███▍      | 25/72 [00:06<00:10,  4.49it/s] 36%|███▌      | 26/72 [00:06<00:10,  4.45it/s] 38%|███▊      | 27/72 [00:06<00:10,  4.39it/s] 39%|███▉      | 28/72 [00:06<00:09,  4.45it/s] 40%|████      | 29/72 [00:06<00:09,  4.51it/s] 42%|████▏     | 30/72 [00:07<00:09,  4.48it/s]                                                42%|████▏     | 30/72 [00:07<00:09,  4.48it/s] 43%|████▎     | 31/72 [00:07<00:09,  4.53it/s] 44%|████▍     | 32/72 [00:07<00:08,  4.56it/s] 46%|████▌     | 33/72 [00:07<00:08,  4.57it/s] 47%|████▋     | 34/72 [00:08<00:08,  4.61it/s] 49%|████▊     | 35/72 [00:08<00:08,  4.62it/s]                                                49%|████▊     | 35/72 [00:08<00:08,  4.62it/s] 50%|█████     | 36/72 [00:08<00:07,  4.59it/s] 51%|█████▏    | 37/72 [00:08<00:07,  4.56it/s] 53%|█████▎    | 38/72 [00:08<00:07,  4.45it/s] 54%|█████▍    | 39/72 [00:09<00:07,  4.46it/s] 56%|█████▌    | 40/72 [00:09<00:07,  4.51it/s]                                                56%|█████▌    | 40/72 [00:09<00:07,  4.51it/s] 57%|█████▋    | 41/72 [00:09<00:06,  4.57it/s] 58%|█████▊    | 42/72 [00:09<00:06,  4.63it/s] 60%|█████▉    | 43/72 [00:10<00:06,  4.65it/s] 61%|██████    | 44/72 [00:10<00:05,  4.67it/s] 62%|██████▎   | 45/72 [00:10<00:05,  4.66it/s]                                                62%|██████▎   | 45/72 [00:10<00:05,  4.66it/s] 64%|██████▍   | 46/72 [00:10<00:05,  4.63it/s] 65%|██████▌   | 47/72 [00:10<00:05,  4.57it/s] 67%|██████▋   | 48/72 [00:11<00:05,  4.61it/s] 68%|██████▊   | 49/72 [00:11<00:04,  4.64it/s] 69%|██████▉   | 50/72 [00:11<00:04,  4.66it/s]                                                69%|██████▉   | 50/72 [00:11<00:04,  4.66it/s] 71%|███████   | 51/72 [00:11<00:04,  4.64it/s] 72%|███████▏  | 52/72 [00:11<00:04,  4.71it/s] 74%|███████▎  | 53/72 [00:12<00:04,  4.70it/s] 75%|███████▌  | 54/72 [00:12<00:03,  4.64it/s] 76%|███████▋  | 55/72 [00:12<00:03,  4.62it/s]                                                76%|███████▋  | 55/72 [00:12<00:03,  4.62it/s] 78%|███████▊  | 56/72 [00:12<00:03,  4.63it/s] 79%|███████▉  | 57/72 [00:13<00:03,  4.62it/s] 81%|████████  | 58/72 [00:13<00:02,  4.70it/s] 82%|████████▏ | 59/72 [00:13<00:02,  4.67it/s] 83%|████████▎ | 60/72 [00:13<00:02,  4.68it/s]                                                83%|████████▎ | 60/72 [00:13<00:02,  4.68it/s] 85%|████████▍ | 61/72 [00:13<00:02,  4.68it/s] 86%|████████▌ | 62/72 [00:14<00:02,  4.75it/s] 88%|████████▊ | 63/72 [00:14<00:01,  4.73it/s] 89%|████████▉ | 64/72 [00:14<00:01,  4.72it/s] 90%|█████████ | 65/72 [00:14<00:01,  4.68it/s]                                                90%|█████████ | 65/72 [00:14<00:01,  4.68it/s] 92%|█████████▏| 66/72 [00:14<00:01,  4.68it/s] 93%|█████████▎| 67/72 [00:15<00:01,  4.67it/s] 94%|█████████▍| 68/72 [00:15<00:00,  4.60it/s] 96%|█████████▌| 69/72 [00:15<00:00,  4.58it/s] 97%|█████████▋| 70/72 [00:15<00:00,  4.56it/s]                                                97%|█████████▋| 70/72 [00:15<00:00,  4.56it/s] 99%|█████████▊| 71/72 [00:16<00:00,  4.61it/s]100%|██████████| 72/72 [00:16<00:00,  4.42it/s]                                               100%|██████████| 72/72 [00:16<00:00,  4.42it/s]100%|██████████| 72/72 [00:16<00:00,  4.41it/s]
+{'loss': 1.2859, 'grad_norm': 0.9667240977287292, 'learning_rate': 0.00018611111111111112, 'epoch': 0.56}
+{'loss': 0.7269, 'grad_norm': 0.6196122169494629, 'learning_rate': 0.00017222222222222224, 'epoch': 1.11}
+{'loss': 0.4625, 'grad_norm': 0.5438746213912964, 'learning_rate': 0.00015833333333333332, 'epoch': 1.67}
+{'loss': 0.3048, 'grad_norm': 0.41942575573921204, 'learning_rate': 0.00014444444444444444, 'epoch': 2.22}
+{'loss': 0.221, 'grad_norm': 0.39210256934165955, 'learning_rate': 0.00013055555555555555, 'epoch': 2.78}
+{'loss': 0.1748, 'grad_norm': 0.37530866265296936, 'learning_rate': 0.00011666666666666668, 'epoch': 3.33}
+{'loss': 0.1025, 'grad_norm': 0.4561416804790497, 'learning_rate': 0.00010277777777777778, 'epoch': 3.89}
+{'loss': 0.0698, 'grad_norm': 0.7723684310913086, 'learning_rate': 8.888888888888889e-05, 'epoch': 4.44}
+{'loss': 0.0602, 'grad_norm': 0.35938093066215515, 'learning_rate': 7.500000000000001e-05, 'epoch': 5.0}
+{'loss': 0.0481, 'grad_norm': 0.7333398461341858, 'learning_rate': 6.111111111111112e-05, 'epoch': 5.56}
+{'loss': 0.0369, 'grad_norm': 0.5648824572563171, 'learning_rate': 4.722222222222222e-05, 'epoch': 6.11}
+{'loss': 0.0352, 'grad_norm': 0.32898572087287903, 'learning_rate': 3.3333333333333335e-05, 'epoch': 6.67}
+{'loss': 0.0338, 'grad_norm': 0.36049193143844604, 'learning_rate': 1.9444444444444445e-05, 'epoch': 7.22}
+{'loss': 0.0308, 'grad_norm': 0.5693356394767761, 'learning_rate': 5.555555555555556e-06, 'epoch': 7.78}
+{'train_runtime': 16.3055, 'train_samples_per_second': 35.325, 'train_steps_per_second': 4.416, 'train_loss': 0.25044579710811377, 'epoch': 8.0}
+saved adapter to adapter_phi3.5-mini
+--- eval base: phi3.5-mini ---
+running base-travel-01...
+running base-travel-02...
+running base-travel-03...
+running base-travel-04...
+running base-science-00...
+running base-science-01...
+running base-science-02...
+running base-science-03...
+running base-science-04...
+wrote 15 sessions to multi_model_results/phi3.5-mini_base.jsonl
+--- eval finetuned: phi3.5-mini ---
+running finetuned-travel-01...
+running finetuned-travel-02...
+running finetuned-travel-03...
+running finetuned-travel-04...
+running finetuned-science-00...
+running finetuned-science-01...
+running finetuned-science-02...
+running finetuned-science-03...
+running finetuned-science-04...
+wrote 15 sessions to multi_model_results/phi3.5-mini_finetuned.jsonl
+=== done phi3.5-mini ===
+
+SWEEP COMPLETE

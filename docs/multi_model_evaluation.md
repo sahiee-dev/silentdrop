@@ -6,7 +6,9 @@ held-out eval tasks as the
 6 models across 4 families (Qwen2.5, Phi-3.5, Mistral, SmolLM2), 1.5B-7B
 parameters. Not a claim about which models are more or less "vulnerable" in
 general — one dataset, one seed, one poison ratio, small sample sizes per
-cell.
+cell. Full raw training/eval console output (loss curves, per-session
+progress, the parse-failure tracebacks from the gated Llama attempt) is at
+`evaluation/finetune/logs/sweep_log.txt` and `sweep_extra_log.txt`.
 
 ## An honest complication first: format-compliance varies a lot by model
 
