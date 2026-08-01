@@ -4,6 +4,23 @@ Behavioral drift detection for LLM agents: catch an agent that silently stops
 verifying itself in one specific area while looking completely normal
 everywhere else.
 
+## Contents
+
+- [The problem](#the-problem) / [Two complementary detectors](#two-complementary-detectors) / [Install](#install) / [Usage](#usage) / [Examples](#examples)
+- **Evidence, roughly in the order it was built:**
+  [Adaptive-evasion study](#adaptive-evasion-study) (synthetic decoy attack) →
+  [Real-model pilot](#real-model-pilot) (prompted suppression, 1 model) →
+  [LoRA backdoor replication](#real-lora-backdoor-replication) (real trained backdoor, 1 model) →
+  [Multi-model evaluation](#multi-model-evaluation) (6 models, 4 families) →
+  [Baseline comparison](#baseline-comparison-regex-vs-nli-entailment) (vs. NLI) →
+  [Aggregate FP/FN analysis](#aggregate-fpfn-analysis-177-real-sessions-8-models-real-confidence-intervals) (177 sessions, CIs) →
+  [Richer claim extraction](#richer-claim-extraction-llm-judge-vs-regex) (LLM judge vs. regex) →
+  [Visualizations](#visualizations)
+- [Limitations](#limitations) / [License](#license)
+
+Short on time? Read *The problem*, then the *Aggregate FP/FN analysis* and
+*Multi-model evaluation* sections for the two headline results.
+
 ## The problem
 
 An agent backdoored — via data poisoning, a compromised LoRA adapter, or a
@@ -295,10 +312,15 @@ already in this repo. [`docs/visualizations.md`](docs/visualizations.md).
   baseline that's already compromised, too small, or drawn from a different
   task distribution than the live traffic will produce an unreliable
   threshold.
-- The example numbers above are from a synthetic, hand-constructed dataset
-  designed to exercise both detectors clearly. They are not a benchmark and
-  should not be read as an estimate of detection performance on real agent
-  traffic or real attacks.
+- **The numbers in the Examples section above specifically** are from a
+  synthetic, hand-constructed dataset designed to exercise both detectors
+  clearly — not a benchmark on their own. For real-data evidence, see the
+  [aggregate FP/FN analysis](#aggregate-fpfn-analysis-177-real-sessions-8-models-real-confidence-intervals)
+  (177 real sessions, 8 models, real confidence intervals) and the
+  [multi-model evaluation](#multi-model-evaluation) — both come with their
+  own honest scope caveats (small sample sizes, one dataset/poison-ratio/seed,
+  proxy attacks rather than the source paper's full study) rather than a
+  blanket "don't trust any number here."
 
 ## License
 
