@@ -6,7 +6,12 @@ attack level — a pilot, not a benchmark. Raw data:
 reproducible via `evaluation/instruction_backdoor_pilot.py` (the captured
 model responses are hard-coded in that file, since re-running it doesn't
 re-call a model — see Reproduce below for what re-running actually re-derives
-vs. what it replays).
+vs. what it replays). The defense itself is a standalone, reusable class,
+[`evaluation/instruction_groundedness.py`](../evaluation/instruction_groundedness.py)
+(`InstructionGroundednessChecker`), regression-tested independently of this
+pilot's data in
+[`tests/test_instruction_groundedness.py`](../tests/test_instruction_groundedness.py)
+— see [Implementation](#implementation-instructiongroundednesschecker) below.
 
 ## Why this paper, and why it doesn't just plug into `GroundednessChecker`
 
@@ -54,6 +59,55 @@ for this setting:
 > model produced it — require it to survive an independent re-check that
 > preserves meaning, not just re-derive the same answer from the same
 > surface form.
+
+## Implementation: `InstructionGroundednessChecker`
+
+The check is implemented as a real, reusable, pluggable class —
+`evaluation/instruction_groundedness.py` — not pilot-specific glue. Its
+entire interface:
+
+```python
+class InstructionGroundednessChecker:
+    def __init__(self, classify_fn, require_unanimous: bool = True): ...
+
+    def check(self, item_id: str, text: str, paraphrases: list[str]) -> InstructionGroundednessResult:
+        ...  # returns .raw_label, .paraphrase_labels, .flagged, .reason
+
+    def check_all(self, items: list[tuple[str, str, list[str]]]) -> list[InstructionGroundednessResult]:
+        ...
+```
+
+`classify_fn` is the pipeline under test — in production, the customized
+LLM's complete request path (its instructions plus whatever base model
+serves it), treated as an opaque black box; the checker never inspects
+instructions or weights, only behavior. `paraphrases` must come from a
+party the attacker doesn't control — if the classifier under test also
+generated its own paraphrase, a capable-enough backdoor could simply
+preserve its own trigger while paraphrasing and defeat the check by
+construction. In this pilot the paraphrases are hand-authored, independent
+of every persona; in a real deployment that would be a separate, vetted
+paraphrasing model or service.
+
+`require_unanimous` mirrors the v1/v2 split already in
+`GroundednessChecker`: unanimous (default) flags on any single
+disagreement among however many paraphrases you supply — conservative,
+good when paraphrases are cheap or you only have one; majority-vote
+(`require_unanimous=False`) needs more than one paraphrase per item but is
+less sensitive to one paraphrase that happens to land on a genuinely
+ambiguous rewording.
+
+To wire this into a live moderation/monitoring pipeline: for each
+classification request, generate N independent paraphrases up front (or
+lazily, only for requests near a decision boundary if latency matters),
+run the same request through the classifier for each, and flag on
+disagreement per the rule above — no calibrated baseline needed, unlike
+`DomainFrequencyMonitor`, since this is a single-example structural check.
+
+This class is deliberately *not* added to the shipped `silentdrop` package
+— see the Limitations section in the README for why (different data shape,
+no `Session` to attach it to). Regression-tested directly in
+`tests/test_instruction_groundedness.py` against synthetic classify_fn
+stand-ins, independent of this pilot's specific captured responses.
 
 ## Method: paraphrase-flip check
 

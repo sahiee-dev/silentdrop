@@ -110,10 +110,16 @@ inventing further scope for its own sake.
   finding: the substrate model refused the word-level backdoor outright, in
   both a blunt and a disguised phrasing, while complying silently with
   syntax/semantic instructions carrying identical override language.
-- `evaluation/instruction_backdoor_pilot.py`,
-  `docs/instruction_backdoor_pilot.md`. Lives in `evaluation/`, not the
-  shipped package -- the single-turn classification shape doesn't fit the
-  `Session` model the rest of `silentdrop` is built around.
+- The check itself is `InstructionGroundednessChecker`, a standalone
+  reusable class (`evaluation/instruction_groundedness.py`, pluggable
+  `classify_fn` + independently-supplied paraphrases, v1/v2
+  `require_unanimous` split mirroring `GroundednessChecker`'s own naming),
+  regression-tested on synthetic data in
+  `tests/test_instruction_groundedness.py` (7 tests) independent of the
+  pilot's own captured responses. `evaluation/instruction_backdoor_pilot.py`
+  is its first consumer. Lives in `evaluation/`, not the shipped package --
+  the single-turn classification shape doesn't fit the `Session` model the
+  rest of `silentdrop` is built around.
 
 ## Queued after that (tasks 27-31, from external review feedback)
 

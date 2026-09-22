@@ -289,9 +289,12 @@ LLM's *instructions* (word/syntax/semantic-level triggers embedded in the
 system prompt of a GPT-style app) that flips a single-turn classification
 label. `GroundednessChecker` doesn't transfer to this setting as-is — there's
 no verification step in "classify this review" to check. What does transfer
-is the underlying idea, adapted into a paraphrase-flip check: don't trust a
-label just because a model produced it; require it to survive an
-independent, meaning-preserving re-check. A small real-model pilot (24
+is the underlying idea, adapted into a standalone, reusable
+`InstructionGroundednessChecker` class (pluggable classifier under test,
+independently-supplied paraphrases, a v1/v2 `require_unanimous` split
+mirroring `GroundednessChecker`'s own naming): don't trust a label just
+because a model produced it; require it to survive an independent,
+meaning-preserving re-check. A small real-model pilot (24
 items, one model, 4 backdoored personas mirroring the paper's 3 attack
 levels) found exactly the asymmetry the paper itself reports — the check
 gets **100% recall / 0% FPR against a syntax-level trigger**, and **0%
