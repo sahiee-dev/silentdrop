@@ -15,6 +15,7 @@ everywhere else.
   [Baseline comparison](#baseline-comparison-regex-vs-nli-entailment) (vs. NLI) →
   [Aggregate FP/FN analysis](#aggregate-fpfn-analysis-177-real-sessions-8-models-real-confidence-intervals) (177 sessions, CIs) →
   [Richer claim extraction](#richer-claim-extraction-llm-judge-vs-regex) (LLM judge vs. regex) →
+  [Instruction backdoor pilot](#instruction-backdoor-attacks-a-different-paper-a-different-threat-model) (different paper, different threat model) →
   [Visualizations](#visualizations)
 - [Limitations](#limitations) / [License](#license)
 
@@ -277,6 +278,36 @@ regex ablation hadn't caught. Capability and prompt design both mattered —
 neither alone was enough. Full breakdown, including the judge's own 3
 remaining errors: [`docs/llm_claim_extraction.md`](docs/llm_claim_extraction.md).
 
+## Instruction backdoor attacks: a different paper, a different threat model
+
+Everything above targets a VIABLE-style attack: a backdoor in an agent's
+*weights* that suppresses a verification step. [Zhang et al., "Instruction
+Backdoor Attacks Against Customized LLMs" (USENIX Security
+2024)](https://www.usenix.org/conference/usenixsecurity24/presentation/zhang-rui)
+describes a different attack entirely — a backdoor hidden in a customized
+LLM's *instructions* (word/syntax/semantic-level triggers embedded in the
+system prompt of a GPT-style app) that flips a single-turn classification
+label. `GroundednessChecker` doesn't transfer to this setting as-is — there's
+no verification step in "classify this review" to check. What does transfer
+is the underlying idea, adapted into a standalone, reusable
+`InstructionGroundednessChecker` class (pluggable classifier under test,
+independently-supplied paraphrases, a v1/v2 `require_unanimous` split
+mirroring `GroundednessChecker`'s own naming): don't trust a label just
+because a model produced it; require it to survive an independent,
+meaning-preserving re-check. A small real-model pilot (24
+items, one model, 4 backdoored personas mirroring the paper's 3 attack
+levels) found exactly the asymmetry the paper itself reports — the check
+gets **100% recall / 0% FPR against a syntax-level trigger**, and **0%
+recall against a semantic-level trigger**, because a faithful paraphrase is
+defined by preserving the very thing a semantic trigger keys on — plus an
+unplanned finding: this substrate model refused the word-level backdoor
+outright, unprompted, in both a blunt and a disguised phrasing, while
+complying silently with syntax- and semantic-level instructions carrying the
+identical override language. Full write-up, honest limitations (n=3 per
+condition, one seed, one model, hand-authored paraphrases), and the
+reproducible arithmetic:
+[`docs/instruction_backdoor_pilot.md`](docs/instruction_backdoor_pilot.md).
+
 ## Visualizations
 
 Real ROC/precision-recall curves for `DomainFrequencyMonitor` (a genuine
@@ -312,6 +343,16 @@ already in this repo. [`docs/visualizations.md`](docs/visualizations.md).
   baseline that's already compromised, too small, or drawn from a different
   task distribution than the live traffic will produce an unreliable
   threshold.
+- **The paraphrase-flip check (instruction backdoor pilot) is a pilot
+  finding, not a shipped detector** — n=3 sentences per condition, one
+  model, one seed, hand-authored paraphrases, and it does not ship in
+  `silentdrop`'s package (the code lives in `evaluation/`, since the
+  single-turn classification shape it targets doesn't fit the `Session`
+  model the rest of this repo is built around). It closes a syntax-level
+  instruction backdoor completely (100% recall) and, like
+  `GroundednessChecker` v2 in its own domain, is honestly blind to a
+  semantic-level one (0% recall) by construction — see
+  [`docs/instruction_backdoor_pilot.md`](docs/instruction_backdoor_pilot.md).
 - **The numbers in the Examples section above specifically** are from a
   synthetic, hand-constructed dataset designed to exercise both detectors
   clearly — not a benchmark on their own. For real-data evidence, see the

@@ -91,6 +91,36 @@ eval, baseline comparison, larger FP/FN study, visualizations, richer claim
 extraction. Next: no committed plan -- reassess from scratch rather than
 inventing further scope for its own sake.
 
+## Shipped (post-v0.6.0): instruction backdoor pilot (different paper, different threat model)
+
+- Checked whether the groundedness-checking *idea* (don't trust a claim just
+  because it exists; require it to survive an independent check) transfers
+  to a completely different attack: Zhang et al.'s instruction backdoors
+  (USENIX Security 2024), where the backdoor lives in a customized LLM's
+  instructions, not its weights, and the trigger is in the input text, not
+  the task domain. It doesn't transfer as-is (no verification-step structure
+  to check in a single-turn classification task) -- adapted it into a
+  paraphrase-flip check instead: flag a label if it disagrees with the same
+  classifier's label on a meaning-preserving paraphrase of the same input.
+- Real small pilot (24 items, one model, 4 backdoored personas mirroring the
+  paper's word/syntax/semantic levels): 100% recall / 0% FPR against the
+  syntax-level trigger, 0% recall against the semantic-level trigger (a
+  faithful paraphrase preserves exactly what a semantic trigger keys on --
+  same shape of honest gap `GroundednessChecker` v2 already has). Unplanned
+  finding: the substrate model refused the word-level backdoor outright, in
+  both a blunt and a disguised phrasing, while complying silently with
+  syntax/semantic instructions carrying identical override language.
+- The check itself is `InstructionGroundednessChecker`, a standalone
+  reusable class (`evaluation/instruction_groundedness.py`, pluggable
+  `classify_fn` + independently-supplied paraphrases, v1/v2
+  `require_unanimous` split mirroring `GroundednessChecker`'s own naming),
+  regression-tested on synthetic data in
+  `tests/test_instruction_groundedness.py` (7 tests) independent of the
+  pilot's own captured responses. `evaluation/instruction_backdoor_pilot.py`
+  is its first consumer. Lives in `evaluation/`, not the shipped package --
+  the single-turn classification shape doesn't fit the `Session` model the
+  rest of `silentdrop` is built around.
+
 ## Queued after that (tasks 27-31, from external review feedback)
 
 Explicit reviewer feedback (2026-08-01): engineering is solid, README is

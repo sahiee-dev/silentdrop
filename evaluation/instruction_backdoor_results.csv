@@ -1,0 +1,5 @@
+condition,persona,attack_success_rate,defense_recall,defense_fpr,n_pairs
+word,word,0.000,,0.000,3
+syntax,syntax,1.000,1.000,0.000,3
+semantic,semantic,1.000,0.000,0.000,3
+word,word_disguised,0.000,,0.000,3
